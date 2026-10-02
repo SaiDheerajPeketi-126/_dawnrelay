@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="DawnRelay privacy policy, support and local data deletion information from Black and Blue.">
+  <title>DawnRelay · Privacy and support</title>
+  <style>
+    :root{color-scheme:dark;--bg:#070b14;--fg:#eef4ff;--muted:#bac8df;--blue:#8cbaff}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:1rem/1.7 system-ui,sans-serif}
+    main{max-width:780px;margin:auto;padding:48px 24px}h1{font-size:clamp(2rem,6vw,3rem);line-height:1.15}h2{margin-top:2.2rem;line-height:1.3}
+    a{color:var(--blue);text-underline-offset:3px}a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+    nav{display:flex;flex-wrap:wrap;gap:20px}small,.muted{color:var(--muted)}.notice{border-left:4px solid var(--blue);padding:12px 20px;background:#101c32}
+    li{margin:.6rem 0}footer{margin-top:48px;border-top:1px solid #2e405b;padding-top:20px}
+  </style>
+</head>
+<body><main>
+  <nav aria-label="Page sections"><a href="#privacy">Privacy</a><a href="#delete">Delete data</a><a href="#support">Support</a></nav>
+  <h1>DawnRelay</h1><p class="muted">Smart alarms by Black and Blue · Android package com.blackandblue.dawnrelay</p>
+  <p class="notice">Pre-release notice: DawnRelay is in development. It has not been released or approved by Google Play. This page describes its privacy design and support process; it does not certify alarm reliability, billing or backend testing.</p>
+  <section id="privacy" aria-labelledby="privacy-title">
+    <h2 id="privacy-title">Privacy policy</h2><p>Last updated: 2 October 2026.</p>
+    <p>Black and Blue provides DawnRelay without ads or a required account. Alarms and wake tasks operate on your phone. Purchase/restore and optional diagnostics use external services described below.</p>
+    <h2>Alarm and mission information</h2>
+    <p>Schedules, labels, sound references, session state, movement evidence and wake history are processed locally. A minimal schedule and session state are stored in Android device-protected storage so an alarm can be restored before the first unlock after reboot. Labels, custom sound references and registered mission token fingerprints stay in credential-protected storage.</p>
+    <p>Camera permission is used when you choose to register or complete a QR/barcode task. Frames are processed on-device using the bundled barcode scanner, then discarded; DawnRelay does not save photographs. Registered QR/barcode content and NFC tag identifiers are stored as SHA-256 fingerprints, not the raw scanned content. These fingerprints are comparison tokens, not encryption or proof of a person's identity.</p>
+    <p>Optional activity recognition runs only in configured wake windows. Fresh sustained walking is a heuristic: another person moving your phone can trigger it. Confirmation is the default. Automatic skipping is an explicit option with Undo and a follow-up check. Step, camera or NFC missions can use an accessible typing fallback.</p>
+    <h2>Purchases and the local trial</h2>
+    <p>The seven-day trial starts only when you tap Start trial. It is stored locally, does not track reinstalls, and never charges or renews automatically. Basic alarms remain available afterward. Expiry restricts new premium configuration and does not cancel an armed alarm.</p>
+    <p>A permanent one-time unlock uses Google Play Billing through RevenueCat. Purchase and restore need an internet connection. RevenueCat receives an app-specific anonymous customer identifier and store purchase information, including product and transaction details, for entitlement verification and purchase support. Its SDK and infrastructure can also process app/device, operating system and network information. DawnRelay uses the isolated dawnrelay_pro product/entitlement and dawnrelay_default offering. A previously verified permanent unlock is cached locally for offline use.</p>
+    <p>DawnRelay does not receive your payment-card details. <a href="https://www.revenuecat.com/privacy/">RevenueCat privacy information</a> and <a href="https://policies.google.com/privacy">Google privacy information</a> explain the providers' processing.</p>
+    <h2>Optional usage analytics and crash reports</h2>
+    <p>Firebase Analytics and Firebase Crashlytics have separate controls and are off by default. If you opt into usage analytics, Firebase may receive generic app usage/lifecycle events, app-instance identifiers and technical app/device information. Advertising consent and advertising identifier collection are disabled. DawnRelay does not attach alarm times, labels, activity evidence, scanned contents, mission answers or wake history to analytics.</p>
+    <p>Crash capture can be enabled separately. Captured reports can include stack traces, diagnostic app/device information and SDK-generated identifiers. Automatic report sending remains disabled. A saved report batch is checked once at app startup after crash capture is initialized; choose Send, Delete or Not now. Send and Delete queue a request for that batch; the interface does not claim backend delivery or deletion is confirmed.</p>
+    <p>Switching crash capture off stops automatic sending, but an already installed crash handler needs an app restart to stop local capture for the next session. Existing reports are retained for your explicit decision. Switching a control off does not recall reports you previously authorized to send. Firebase SDK initialization and optional activity recognition can involve provider infrastructure even when user content is not sent. <a href="https://firebase.google.com/support/privacy">Firebase privacy information</a> describes these services.</p>
+    <h2>Retention and security</h2>
+    <p>Wake history is bounded to the latest 200 events and can be cleared in History. Completed runtime session records are removed during schedule maintenance after 30 days; active sessions are retained until ended. Schedules and settings remain until edited, deleted, Android app data is cleared or the app is uninstalled. Device backup is disabled for app data. Android storage protections apply; DawnRelay cannot guarantee protection on a compromised device.</p>
+    <p>Provider records follow Google and RevenueCat retention rules and applicable legal obligations. Connections to configured billing and diagnostics services use their SDK transport protections. Verification of the signed release's actual SDK traffic remains a pre-release validation gate.</p>
+    <h2>This website</h2>
+    <p>This support page uses GitHub Pages with Cloudflare DNS. It contains no advertising, tracking scripts, cookies set by DawnRelay, or contact form. Hosting providers may process ordinary request metadata, such as IP address and browser information. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a> and <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's privacy policy</a>.</p>
+    <h2>Changes and contact</h2>
+    <p>We update this page when relevant behavior changes. Contact <a href="mailto:developer@blackandblue.co.in">developer@blackandblue.co.in</a> for privacy or support questions. Do not email mission codes, sensitive schedules or payment-card information.</p>
+  </section>
+  <section id="delete" aria-labelledby="delete-title"><h2 id="delete-title">Delete your data</h2>
+    <p>No DawnRelay account is required. Delete a routine from Alarms to remove its saved configuration and cancel its sessions; use History → Clear history to remove event history. Clear Android app storage or uninstall to remove the app's local data, including trial/cache settings and token fingerprints. This also removes alarm schedules: do not use it unless you intend to stop those alarms. Clearing data does not refund a Play purchase.</p>
+    <p>In Settings, switch optional analytics off to disable collection and reset its local analytics data. Choose Delete for the available saved crash-report batch; deletion is queued and does not undo a previously authorized send. For provider-held purchase or diagnostic information, email our support address with the app name and request. We may need limited purchase information to locate a billing record; we will explain what is needed. Google Play receipts and legally required transaction records may remain with their provider.</p>
+  </section>
+  <section id="support" aria-labelledby="support-title"><h2 id="support-title">Support</h2>
+    <p>Email <a href="mailto:developer@blackandblue.co.in">developer@blackandblue.co.in</a>. Include DawnRelay, app version, Android version and a description of the issue. Remove private alarm details from any screenshots you choose to send.</p>
+    <p>Check Settings → Ready for morning for exact alarms, notification channels, full-screen access, alarm volume and device battery restrictions. Missing activity/camera/NFC permission must not be treated as proof you are awake. DawnRelay respects manually changed system alarm volume. Emergency stop ends only the current session; the next scheduled day remains enabled.</p>
+    <p>Alarm delivery depends on Android permissions, device restrictions, power, audio hardware and user settings. Waking is not guaranteed. DawnRelay is not an emergency, medical or safety-critical service. Wearable and smart-light integrations are outside this first phone release.</p>
+  </section>
+  <footer><small>Black and Blue · DawnRelay · <a href="#privacy">Privacy</a> · <a href="#delete">Data deletion</a> · <a href="#support">Support</a></small></footer>
+</main></body></html>
